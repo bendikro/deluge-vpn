@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-source vpn_base.sh
+SRC_DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$SRC_DIR" ]]; then SRC_DIR="$PWD"; fi
+source "$SRC_DIR/vpn_base.sh"
 
 VPN_IP=`get_nic_ip $VPNIF`
 

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-source vpn_base.sh
+SRC_DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$SRC_DIR" ]]; then SRC_DIR="$PWD"; fi
+source "$SRC_DIR/vpn_base.sh"
 
 LAN_IP=`get_nic_ip $NETIF`
 SUBNET_MASK=`get_nic_subnet_mask $NETIF` # CIDR
