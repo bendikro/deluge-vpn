@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+#
+# Mostly based on the script from this blog:
+# https://www.niftiestsoftware.com/2011/08/28/making-all-network-traffic-for-a-linux-user-use-a-specific-network-interface/
+#
 SRC_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "$SRC_DIR" ]]; then SRC_DIR="$PWD"; fi
 source "$SRC_DIR/vpn_base.sh"
