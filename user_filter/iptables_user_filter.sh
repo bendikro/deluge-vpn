@@ -44,6 +44,8 @@ iptables -A INPUT -i $VPNIF -j REJECT -m comment --comment "${COMMENT}"
 
 # Set DNS for $VPNUSER
 iptables -t nat -A OUTPUT --dest $LAN_NETWORK -p udp --dport $DNS_PORT -m owner --uid-owner $VPNUSER -j DNAT --to-destination $DNS_IP1 -m comment --comment "${COMMENT}"
+iptables -t nat -A OUTPUT --dest $LAN_NETWORK -p tcp --dport $DNS_PORT -m owner --uid-owner $VPNUSER -j DNAT --to-destination $DNS_IP1 -m comment --comment "${COMMENT}"
+iptables -t nat -A OUTPUT --dest $LAN_NETWORK -p udp --dport $DNS_PORT -m owner --uid-owner $VPNUSER -j DNAT --to-destination $DNS_IP2 -m comment --comment "${COMMENT}"
 iptables -t nat -A OUTPUT --dest $LAN_NETWORK -p tcp --dport $DNS_PORT -m owner --uid-owner $VPNUSER -j DNAT --to-destination $DNS_IP2 -m comment --comment "${COMMENT}"
 
 # Let $VPNUSER access lo and $VPNIF
