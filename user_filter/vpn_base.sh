@@ -1,6 +1,14 @@
+# Name of your VPN network interface
+# `tun0` is default on debian
 VPNIF="tun0"
-NETIF="eth1"
+
+# Name of your normal network interface
+# `enp0s7` is default on debian; `eth0` is default on ubuntu
+NETIF="eth0"
+
+# Name of the user whose traffic should be routed through the VPN
 VPNUSER="vpnuser"
+
 TABLE_ID=42 # Can be any integer 0-253
 MARK_ID=0x10 # Any 32bit value
 
