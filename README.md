@@ -12,12 +12,15 @@ To use these scripts with OpenVPN:
 
 1. Make a clone of the repo and set the correct values for the interfaces and user in vpn_base.sh.
 
-2. Edit the openvpn client config and add this line:
+2. Edit the OpenVPN client config and add this line:
 
  ```up "/path/to/repo/link_up_user_filter.sh"``` with the correct path to the cloned repo.
 
- To allow executing external scripts automatically when starting the openvpn client, run openvpn with the argument
+ To allow executing external scripts automatically when starting the OpenVPN client, run openvpn with the argument
 
- ```--script-security 2``` or add this line to the client config: ```script-security 2```
+ ```--script-security 2``` or add this line to the OpenVPN client config: ```script-security 2```
+
+ By standard OpenVPN will accept alternative routing tables from the VPN server. Since we want to use a custom routing table we need to disable this
+ by adding ```pull-filter ignore redirect-gateway``` to the OpenVPN client config.
 
 3. Run openvpn
